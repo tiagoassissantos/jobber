@@ -1,0 +1,51 @@
+<h2>Contate-nos</h2>
+  <div class='esquerda'>
+  <p>
+    Você pode nos enviar uma mensagem <br> 
+    diretamente através do formulário abaixo,<br>
+    ou enviar um e-mail para
+    <% if @empresa != nil %>
+      <a href='mailto:<%= @empresa.email %>'><%= @empresa.email %></a>.
+    <% end %>
+  </p>
+  
+  <form action='/contato/envia'>
+    <label>Nome</label><br>
+    <input type='text' name='nome' class='textos' /><br>
+    
+    <label>e-mail</label><br>
+    <input type='text' name='email' class='textos' /><br>
+    
+    <label>Telefone</label><br>
+    <input type='text' name='telefone' class='textos' /><br>
+    
+    <label>Assunto</label><br>
+    <input type='text' name='assunto' class='textos' /><br>
+    
+    <label>Mensagem</label><br>
+    <textarea cols=50 rows=10 name='mensagem'></textarea> <br>
+    
+    <input type='submit' id='btnEnviar' value='Enviar' />
+  </form>
+</div>
+
+<div class='direita'>
+  <h3>Ligue para nós</h3>
+  <% if @empresa !=nil %>
+    <label>Telefone: <%= @empresa.telefone1 %></label><br>
+    <% if @empresa.telefone2? %>
+      <label>Telefone: </label> <%= @empresa.telefone2 %><br>
+    <% end %>
+  
+    <% if @empresa.celular? %>
+      <label>Celular: </label> <%= @empresa.celular %><br>
+    <% end %>
+  <% end %>
+
+  <h3>Venha nos visitar</h3>
+  <% if @empresa != nil %>
+    <label><%= @empresa.endereco %></label><br>
+    <label><%= @empresa.bairro %>, <%= @empresa.cidade %> -<%= @empresa.estado %><br></label>
+    <label>CEP: <%= @empresa.cep %></label><br>
+    <% end %>
+</div>

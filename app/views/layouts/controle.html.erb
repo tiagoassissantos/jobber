@@ -1,0 +1,23 @@
+<% content_for :content do %>
+  <% if user_signed_in? %>
+  <div id='divMenu' style='height: 30px;'>
+    <div id='controleMenu' style='float: left'>
+      <a href='/controle'>Centro de Controle</a>
+      <%= link_to('Clientes', clientes_path) %>
+      <%= link_to('Imóveis', imoveis_path) %>
+      <%= link_to('Cidades', cidades_path) %>
+      <%= link_to('Operação', operacoes_path) %>
+      <%= link_to('Tipo Imóvel', tipos_path) %>
+      <%= link_to('Destaques', destaques_path) %>
+    </div>
+    
+    <div id='deviseMenu' style='float: right'>
+      <%= render 'devise/menu/registration_user_items' %>
+      <%= render 'devise/menu/login_items' %>
+    </div>
+  </div>
+  <% end %>
+  
+  <%= yield %>
+<% end %>
+<%= render :file => 'layouts/base.html.erb' %>

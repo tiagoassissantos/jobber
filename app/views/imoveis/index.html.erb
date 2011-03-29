@@ -1,0 +1,57 @@
+<div class='botao esquerda'>
+  <%= link_to 'Cadastrar Imóvel', new_imovel_path %>
+</div>
+<br /><br />
+
+<h1>Imóveis Cadastrados</h1>
+
+<div class="apple_pagination">
+  <%= will_paginate @imoveis, :container => false %>
+</div>
+
+<% @imoveis.each do |imovel| %>
+  <% idImovel = imovel.id %>
+  <div id='imovel_<%= idImovel %>' class='bordaArredondada caixa caixaImovel hoverImovel'>
+    <div class='esquerda largFoto'>
+      <% if imovel.imgcapa? %>
+        <%= image_tag(imovel.imgcapa.thumb.url) %>
+      <% else %>
+        <img src='/images/sem_imagem.jpg' />
+      <% end %>
+    </div>
+
+    <div>
+      <div class='esquerda largInfoImovel'>
+        <label class='fonte16'><%= imovel.titulo %></label><br>
+        <label>Tipo Imóvel:</label> <%= imovel.tipo.tipo %><br>
+        <label>Operação:</label> <%= imovel.operacao.nome %><br>
+        <label>Bairro:</label> <%= imovel.bairro %><br>
+        <label>Cidade:</label> <%= imovel.cidade.nome %><br>
+        <p class='fonte16'>
+          <label>Valor:</label> <%= imovel.valor.real_formatado if imovel.valor? %>
+        </p>
+        
+        <div class='botao esquerda margemDireita'>
+          <%= link_to 'Exibir', imovel %>
+        </div>
+        <div class='botao esquerda margemDireita'>
+          <%= link_to 'Editar', edit_imovel_path(imovel) %>
+        </div>
+        <div class='botao esquerda'>
+          <%= link_to 'Excluir', imovel, :confirm => 'Você tem certeza?', :method => :delete %>
+        </div>
+        
+        
+      </div>
+      
+      <div class='direita largDescricaoImovel'>
+        <label class='fonte16'>Descrição</label><br>
+        <%= imovel.descricao %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="apple_pagination">
+  <%= will_paginate @imoveis, :container => false %>
+</div>

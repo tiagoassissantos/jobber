@@ -1,0 +1,43 @@
+<h1>Dados da empresa</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Endereco</th>
+    <th>Bairro</th>
+    <th>Cidade</th>
+    <th>Estado</th>
+    <th>Telefone1</th>
+    <th>Telefone2</th>
+    <th>Celular</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @empresas.each do |empresa| %>
+  <tr>
+    <td><%= empresa.nome %></td>
+    <td><%= empresa.endereco %></td>
+    <td><%= empresa.bairro %></td>
+    <td><%= empresa.cidade %></td>
+    <td><%= empresa.estado %></td>
+    <td><%= empresa.telefone1 %></td>
+    <td><%= empresa.telefone2 %></td>
+    <td><%= empresa.celular %></td>
+    <td><%= empresa.email %></td>
+    <td><%= link_to 'Show', empresa %></td>
+    <td><%= link_to 'Edit', edit_empresa_path(empresa) %></td>
+    <td><%= link_to 'Destroy', empresa, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% if @empresas.size < 1 %>
+<div class='botao esquerda'>
+<%= link_to 'Cadastrar Empresa', new_empresa_path %>
+</div>
+<% end %>
+

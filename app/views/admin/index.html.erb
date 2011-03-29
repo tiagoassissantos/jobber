@@ -1,0 +1,12 @@
+<div id='deviseMenu' style='float: right'>
+  <%= render 'devise/menu/registration_user_items' %>
+  <%= render 'devise/menu/login_items' %>
+</div>
+
+<div id="configuracoes">
+  <h2>Configurações do Sistema</h2>
+  <%= link_to('Gerenciar Usuários', users_path) %><br>
+  <%= link_to('Logotipo', logotipos_path) %><br>
+  <%= link_to('Dados da empresa', empresas_path) %><br>
+  <%= link_to('Editar página "Sobre"', 'sobre/editar') %>
+</div>

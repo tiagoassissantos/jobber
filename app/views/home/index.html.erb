@@ -1,0 +1,11 @@
+<div id='destaques'>
+  <% Destaque.all.each do |destaque| %>
+    <a href="/destaques/<%= destaque.id %>">
+      <%= image_tag( destaque.arquivo_url) %>
+    </a>
+  <% end %>
+</div>
+
+<div id='ofertas'> <h2>Ofertas</h2> </div>
+
+<%= render :partial => 'shared/mostra_imoveis' %>

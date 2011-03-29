@@ -1,0 +1,21 @@
+<%= form_for @logotipo, :html => {:multipart => true} do |f| %>
+  <% if @logotipo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@logotipo.errors.count, "error") %> prohibited this logotipo from being saved:</h2>
+
+      <ul>
+      <% @logotipo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :arquivo %><br />
+    <%= f.file_field :arquivo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

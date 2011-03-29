@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<%= render :partial => 'shared/detalhes_imovel' %>
+
+<b>Cliente:</b>
+<%= @imovel.cliente.nome %>
+<br>
+<b>Vendido:</b>
+<% if @imovel.vendido? %>
+  Sim
+<% else %>
+  Não
+<% end %>
+<br><br>
+<%= link_to 'Editar', edit_imovel_path(@imovel) %> |
+<%= link_to 'Voltar', imoveis_path %>
+
+<br>
+<div id='upload_foto'>
+  <h3>Adicionar imagem</h3>
+  <form id="upload_imagem" action="/imagem/new"
+                         method="POST" enctype="multipart/form-data">
+      <input type="file" name="file" />
+      <input type="hidden" name="idImovel" value="<%= @imovel.id %>" />
+      <label>Legenda: </label>
+      <input type="text" name="legenda" />
+      <input type="submit" value="Enviar Imagem">
+  </form>
+</div>
+
+<br>
+<h3>Imagens adicionadas</h3>
+<% @imovel.imagens.each do |imagem| %>
+  <div style="width: 205px; float: left; padding: 10px;">
+  	<%= image_tag(imagem.arquivo.thumb.url) %><br>
+	  <label><%= imagem.legenda %></label>
+	  <li style="float: right;">
+  	  <%= link_to 'Exclui', imagem, :confirm => 'Você tem certeza?', :method => :delete %>
+  	</li>
+	  <br><br>
+	</div>
+<% end %>

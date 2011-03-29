@@ -1,0 +1,22 @@
+<%= image_tag(@destaque.arquivo_url) if @destaque.arquivo? %>
+
+<h1>
+  <%= @destaque.titulo %>
+</h1>
+
+<textarea cols='92' rows='30' readonly='readonly'>
+  <%= @destaque.texto %>
+</textarea>
+
+<br />
+<!--script>
+  $(document).ready(function() {
+    $('#abcd').append(<%= @destaque.texto %>);
+  });
+</script-->
+
+<% if user_signed_in? %>
+<%= link_to 'Editar', edit_destaque_path(@destaque) %> |
+<%= link_to 'Voltar', destaques_path %>
+<br><br>
+<% end %>

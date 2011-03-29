@@ -1,0 +1,154 @@
+<%= form_for @imovel, :html => {:multipart => true} do |f| %>
+  <% if @imovel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@imovel.errors.count, "error") %> prohibited this imovel from being saved:</h2>
+
+      <ul>
+      <% @imovel.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :titulo %><br />
+    <%= f.text_field :titulo %>
+    
+    <div class='direita' style='text-align: right; width: 400px;'>
+      <%= f.label :imagem, "Foto:" %>
+      <%= f.file_field :imgcapa %>
+    </div>
+  </div>
+  <div class="field textos">
+    <%= f.label :descricao %><br />
+    <%= f.text_area :descricao %>
+  </div>
+  
+  <div>
+    <div class="esquerda margemDireita">
+      <div class=" field esquerda margemDireita">
+        <%= f.label :tipo %><br />
+        <%= collection_select(:imovel, :tipo_id,
+            Tipo.order(:tipo),
+            :id, :tipo, {:prompt => true}) %>
+      </div>
+      <div class="field direita">
+        <%= f.label :operacao %><br />
+        <%= collection_select(:imovel, :operacao_id,
+            Operacao.order(:nome),
+            :id, :nome, {:prompt => true}) %>
+      </div>
+    </div>
+    <div class="field numeros">
+      <%= f.label :valor %><br />
+      <%= f.text_field :valor %>
+    </div>
+  </div>
+  
+  <hr />  
+
+  <div class="field" style='height: 130px;'>
+    <h3>Endereço</h3>
+    
+    <div class="esquerda margemDireita">
+      <%= f.label :cidade %><br />
+      <%= collection_select(:imovel, :cidade_id,
+          Cidade.order(:nome),
+          :id, :nome, {:prompt => true}) %>
+    </div>
+    
+    <div class="esquerda>
+      <%= f.label :bairro %><br />
+      <%= f.text_field :bairro %>
+    </div>
+    
+    <div class="field esquerda margemDireita">
+      <%= f.label :logradouro %><br />
+      <%= f.text_field :logradouro %>
+    </div>
+    
+    <div class="esquerda margemDireita">
+      <%= f.label :complemento %><br />
+      <%= f.text_field :complemento %>
+    </div>
+    
+    <div class="esquerda numeros">
+      <%= f.label :numero %><br />
+      <%= f.text_field :numero %>
+    </div>
+  </div
+  
+  <hr />
+
+  <div style='height: 140px;'>
+    <h3>Dados do imóvel</h3>
+    <div class="esquerda field numeros" style="width: 130px;">
+      <%= f.label :suite %><br />
+      <%= f.text_field :suite %>
+    </div>
+  
+    <div class="esquerda field numeros" style="width: 130px;">
+      <%= f.label :quarto %><br />
+      <%= f.text_field :quarto %>
+    </div>
+      
+    <div class="esquerda field numeros" style="width: 130px;">
+      <%= f.label :sala %><br />
+      <%= f.text_field :sala %>
+    </div>
+  
+    <div class="esquerda field numeros" style="width: 160px;">
+      <%= f.label :copa %><br />
+      <%= f.text_field :copa %>
+    </div>
+      
+    <div class="esquerda field numeros" style="width: 130px;">
+      <%= f.label :cozinha %><br />
+      <%= f.text_field :cozinha %>
+    </div>
+
+    <div class="esquerda field numeros" style="width: 130px;">
+      <%= f.label :banheiro %><br />
+      <%= f.text_field :banheiro %>
+    </div>
+      
+    <div class="esquerda field numeros" style="width: 130px;">
+      <%= f.label :lavabo %><br />
+      <%= f.text_field :lavabo %>
+    </div>
+
+    <div class="esquerda field numeros" style="width: 130px;">
+      <%= f.label :garagem %><br />
+      <%= f.text_field :garagem %>
+    </div>
+      
+    <div class="field numeros esquerda" style="width: 160px;">
+      <%= f.label :areaTerreno, "Área do terreno (m²)" %><br />
+      <%= f.text_field :areaTerreno %>
+    </div>
+    <div class="esquerda field numeros" style="width: 150px;">
+      <%= f.label :areaconstruida, "Área construída (m²)" %><br />
+      <%= f.text_field :areaconstruida %>
+    </div>
+  </div>
+
+  <hr />
+    
+  <div class="field">
+    <%= f.label :cliente %><br />
+    <%= collection_select(:imovel, :cliente_id,
+        Cliente.order(:nome),
+        :id, :nome, {:prompt => true}) %>
+  </div>
+  
+  <%= f.label :vendido, "Vendido:" %>
+  <%= f.check_box :vendido %>
+ 
+  <hr />
+  
+<br><br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

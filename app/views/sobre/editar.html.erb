@@ -1,0 +1,16 @@
+<h2>Edite a página 'Sobre' de sua empresa</h2>
+
+<form action='/sobre/atualizar'>
+  <textarea name='pagina_sobre' id="edicaopagina" cols='105' rows='30' >
+    <%= @arquivo_sobre %>
+  </textarea>
+
+  <input type='submit' id='btnAtualizar' value='Atualizar' />
+</form>
+
+
+<script>
+  $(document).ready(function() {
+    $("textarea").htmlarea();
+  });
+</script>

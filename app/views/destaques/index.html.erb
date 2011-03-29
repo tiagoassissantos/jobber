@@ -1,0 +1,28 @@
+<h1>Destaques Cadastrados</h1>
+
+<table>
+  <tr>
+    <th>Titulo</th>
+    <th>Texto</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @destaques.each do |destaque| %>
+  <tr>
+    <td><%= destaque.titulo %></td>
+    <td><%= destaque.texto %></td>
+    <td><%= link_to 'Exibir', destaque %></td>
+    <td><%= link_to 'Editar', edit_destaque_path(destaque) %></td>
+    <td><%= link_to 'Excluir', destaque, :confirm => 'Você tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% if @destaques.size < 1 %>
+<div class='botao esquerda'>
+<%= link_to 'Novo Destaque', new_destaque_path %>
+</div>
+<% end %>

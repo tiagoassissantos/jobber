@@ -1,0 +1,12 @@
+<%= render :partial => 'shared/detalhes_imovel' %>
+
+<h2>Fotos</h2>
+<% @imovel.imagens.each do |imagem| %>
+  <div style="width: 205px; float: left; padding: 10px;">
+    <a href="<%= imagem.arquivo.url %>">
+    	<%= image_tag(imagem.arquivo.thumb.url) %><br>
+    </a>
+	  <label><%= imagem.legenda %></label>
+	  <br><br>
+	</div>
+<% end %>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Controle - Sistema para Imobiliárias</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+  <script src="/javascripts/jquery.fileupload.js"></script>
+  <script src="/javascripts/jquery.fileupload-ui.js"></script>
+  <script src="/javascripts/jHtmlArea-0.7.0.min.js"></script>
+</head>
+
+<body>
+<div id='pagina'>
+  <div id='header'>
+    <%= render :partial => '/layouts/header' %>
+  </div>
+  
+  <div id='main'>
+    <%= render :partial => '/layouts/main' %>    
+    <div id='clear'></div>
+  </div>
+  
+  <div id='rodape'>
+    <%= render :partial => '/layouts/rodape' %>  
+  </div>
+</div>
+
+</body>
+</html>

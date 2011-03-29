@@ -1,0 +1,27 @@
+<h1>Logotipo cadastrado</h1>
+
+<table>
+  <tr>
+    <th>Arquivo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @logotipos.each do |logotipo| %>
+  <tr>
+    <td><%= logotipo.arquivo %></td>
+    <td><%= link_to 'Exibir', logotipo %></td>
+    <td><%= link_to 'Editar', edit_logotipo_path(logotipo) %></td>
+    <td><%= link_to 'Excluir', logotipo, :confirm => 'Você tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% if @logotipos.size < 1 %>
+  <div class='botao esquerda'>
+  <%= link_to 'Cadastrar Logotipo', new_logotipo_path %>
+  </div>
+<% end %>

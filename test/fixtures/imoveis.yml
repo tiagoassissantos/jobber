@@ -1,0 +1,47 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  titulo: MyString
+  descricao: MyText
+  estado: MyString
+  cidade: MyString
+  bairro: MyString
+  logradouro: MyString
+  complemento: MyString
+  numero: MyString
+  tipo: MyString
+  suite: 1
+  quarto: 1
+  sala: 1
+  copa: 1
+  cozinha: 1
+  banheiro: 1
+  lavabo: 1
+  garagem: 1
+  areaTerreno: 1
+  areaconstruida: 1
+  valor: 1
+  cliente: 
+
+two:
+  titulo: MyString
+  descricao: MyText
+  estado: MyString
+  cidade: MyString
+  bairro: MyString
+  logradouro: MyString
+  complemento: MyString
+  numero: MyString
+  tipo: MyString
+  suite: 1
+  quarto: 1
+  sala: 1
+  copa: 1
+  cozinha: 1
+  banheiro: 1
+  lavabo: 1
+  garagem: 1
+  areaTerreno: 1
+  areaconstruida: 1
+  valor: 1
+  cliente: 

@@ -1,0 +1,28 @@
+<div id="endereco" class='esquerda'>
+  <strong>Nosso endereço</strong><br>
+  <% if @empresa != nil %>
+    <%= @empresa.endereco %><br>
+    <%= @empresa.bairro %>,
+    <%= @empresa.cidade %> -
+    <%= @empresa.estado %><br>
+    <%= @empresa.telefone1 %>
+    <% if @empresa.telefone2? %>
+      / <%= @empresa.telefone2 %>
+    <% elsif @empresa.celular? %>
+      / <%= @empresa.celular %>
+    <% end %>
+    <br>
+    <%= @empresa.email %>
+  <% end %>
+</div>
+
+<div id='links' class='direita' style='text-align: right; padding: 10px;'>
+  <% if @empresa != nil %>
+    <label class='fonte25'><%= @empresa.nome %></label><br>
+    <% if @empresa.creci? %>
+      CRECI: <%= @empresa.creci %>
+    <% end %>
+  <% end %>
+  <br><br>
+  <label>Desenvolvido por </label><a href='http://www.cicladestec.com.br'>Cíclades Tecnologia</a>
+</div>

@@ -1,0 +1,31 @@
+<div id='menuSuperior' class='direita'>
+  <a href='/'>Home</a> | 
+  <a href='/contato'>Contato</a> |
+  <a href='/sobre'>Sobre nós</a>
+</div>
+    
+<div id='titulo' class='esquerda'>
+  <% logotipo = Logotipo.first %>
+  <% if logotipo != nil %>
+    <%= image_tag(logotipo.arquivo.url) %>
+  <% else %>
+    <img src='/images/logotipo.png' />
+  <% end %>
+</div>
+
+<div id='infoContato' class='direita'>
+  <% @empresa = Empresa.first %>
+  <% if @empresa != nil %>
+    <label class='fonte25'>
+      <%= @empresa.telefone1 %>
+      <% if @empresa.telefone2? %>
+        / <%= @empresa.telefone2 %>
+      <% elsif @empresa.celular? %>
+        / <%= @empresa.celular %>
+      <% end %>
+    </label>
+    <br>
+    <label>E-mail: <%= @empresa.email %> </label>
+  <% end %>
+</div>
+

@@ -1,0 +1,27 @@
+<h1>Cidades cadastradas</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Estado</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cidades.each do |cidade| %>
+  <tr>
+    <td><%= cidade.nome %></td>
+    <td><%= cidade.estado %></td>
+    <td><%= link_to 'Exibir', cidade %></td>
+    <td><%= link_to 'Editar', edit_cidade_path(cidade) %></td>
+    <td><%= link_to 'Excluir', cidade, :confirm => 'Você tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<div class='botao esquerda'>
+  <%= link_to 'Nova Cidade', new_cidade_path %>
+</div>

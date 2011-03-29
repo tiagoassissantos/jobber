@@ -1,0 +1,105 @@
+<div class='esquerda' style='width: 450px;'>
+  <h2><%= @imovel.titulo %></h2>
+  <h3>
+    <b>Valor:</b>
+    <%= @imovel.valor.real_formatado if @imovel.valor? %>
+  </h3>
+  <h4>
+    Código do imóvel:
+    <%= @imovel.id %>
+  </h4>
+  <h4>
+    <b>Tipo:</b>
+    <%= @imovel.tipo.tipo %>
+  </h4>
+  <h4>
+    <b>Operação:</b>
+    <%= @imovel.operacao.nome %>
+  </h4>
+</div>
+  
+<div class='direta' style='text-align: right;'>
+  <% if @imovel.imgcapa? %>
+    <%= image_tag(@imovel.imgcapa.thumb.url) %>
+  <% else %>
+    <img src='/images/sem_imagem.jpg' style='width: 275px;' />
+  <% end %>
+</div>
+
+<hr />
+
+<p>
+  <h3>Descricao</h3>
+  <%= @imovel.descricao %>
+</p>
+
+<hr />
+
+<div>
+  <h3>Endereço</h3>
+  <%= @imovel.logradouro %>, <%= @imovel.numero %>,
+  
+  <% if @imovel.complemento? %>
+    <%= @imovel.complemento %>, 
+  <% end %>
+  
+  <%= @imovel.bairro %>, 
+  <%= @imovel.cidade.nome %> - <%= @imovel.cidade.estado %>
+</div>
+
+<hr />
+
+<div style='height: 80px;'>
+  <h3>Dados do imóvel</h3>
+  <div class='esquerda' style='width: 130px;'>
+    <b>Suite:</b>
+    <%= @imovel.suite %>
+  </div>
+
+  <div class='esquerda' style='width: 130px;'>
+    <b>Quarto:</b>
+    <%= @imovel.quarto %>
+  </div>
+
+  <div class='esquerda' style='width: 130px;'>
+    <b>Sala:</b>
+    <%= @imovel.sala %>
+  </div>
+
+  <div class='esquerda' style='width: 170px;'>
+    <b>Copa:</b>
+    <%= @imovel.copa %>
+  </div>
+
+  <div class='esquerda' style='width: 150px;'>
+    <b>Cozinha:</b>
+    <%= @imovel.cozinha %>
+  </div>
+
+  <div class='esquerda' style='width: 130px;'>
+    <b>Banheiro:</b>
+    <%= @imovel.banheiro %>
+  </div>
+
+  <div class='esquerda' style='width: 130px;'>
+    <b>Lavabo:</b>
+    <%= @imovel.lavabo %>
+  </div>
+
+  <div class='esquerda' style='width: 130px;'>
+    <b>Garagem:</b>
+    <%= @imovel.garagem %>
+  </div>
+
+  <div class='esquerda' style='width: 170px;'>
+    <b>Areaterreno:</b>
+    <%= @imovel.areaTerreno %> m²
+  </div>
+
+  <div class='esquerda' style='width: 170px;'>
+    <b>Areaconstruida:</b>
+    <%= @imovel.areaconstruida %> m²
+  </div>
+</div>
+
+<hr />

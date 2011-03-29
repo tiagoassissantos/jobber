@@ -1,0 +1,35 @@
+<form action='/busca/busca_imoveis' id='busca' class='bordaArredondada'>
+  <strong>Busca</strong>
+  <br>
+  <label>Cidade</label><br>
+  <select id='cidades' name='cidade' class='combobox'>
+    <option value="0">Todas</option>
+    <% @cidades = Cidade.order(:nome) %>
+    <% @cidades.each do |cidade| %>
+      <option value='<%= cidade.id %>'><%= cidade.nome %> - <%= cidade.estado %></option>
+    <% end %>
+  </select>
+  
+  <br />
+  <label>Tipo do imóvel</label><br>
+  <select id='tiposImovel' name='tipo' class='combobox'>
+    <option value="0">Todos</option>
+    <% @tipos = Tipo.order(:tipo) %>
+    <% @tipos.each do |tipo| %>
+      <option value='<%= tipo.id %>'><%= tipo.tipo %></option>
+    <% end %>
+  </select>
+  
+  <br />
+  <label>Operação</label><br>
+  <select id='operacoes' name='operacao' class='combobox'>
+    <option value="0">Todas</option>
+    <% @operacoes = Operacao.order(:nome) %>
+    <% @operacoes.each do |operacao| %>
+      <option value='<%= operacao.id %>'><%= operacao.nome %></option>
+    <% end %>
+  </select>
+  
+  <br /><br />
+  <input id='btnBuscar' type='submit' value='Buscar' />
+</form>

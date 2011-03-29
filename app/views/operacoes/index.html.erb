@@ -1,0 +1,24 @@
+<div class='botao esquerda'>
+<%= link_to 'Nova Operação', new_operacao_path %>
+</div>
+<br/><br/>
+
+<h1>Operações Cadastradas</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @operacoes.each do |operacao| %>
+  <tr>
+    <td><%= operacao.nome %></td>
+    <td><%= link_to 'Exibir', operacao %></td>
+    <td><%= link_to 'Editar', edit_operacao_path(operacao) %></td>
+    <td><%= link_to 'Excluir', operacao, :confirm => 'Você tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>

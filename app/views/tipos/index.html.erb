@@ -1,0 +1,24 @@
+<div class='botao esquerda'>
+<%= link_to 'Novo Tipo de Imóvel', new_tipo_path %>
+</div>
+<br/><br/>
+
+<h1>Tipos de Imóvel Cadastrados</h1>
+
+<table>
+  <tr>
+    <th>Tipo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tipos.each do |tipo| %>
+  <tr>
+    <td><%= tipo.tipo %></td>
+    <td><%= link_to 'Exibir', tipo %></td>
+    <td><%= link_to 'Editar', edit_tipo_path(tipo) %></td>
+    <td><%= link_to 'Excluir', tipo, :confirm => 'Você tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
