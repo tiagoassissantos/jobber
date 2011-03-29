@@ -1,4 +1,4 @@
-1301436127
+1301437745
 AddColumnsCepCreciEmEmpresa	/home/tiago/Dropbox/RProjetos/jobber/db/migrate/20110228224033_add_columns_cep_creci_em_empresa.rb	class AddColumnsCepCreciEmEmpresa 
 AddColunaImgcapaEmImoveis	/home/tiago/Dropbox/RProjetos/jobber/db/migrate/20110226235808_add_coluna_imgcapa_em_imoveis.rb	class AddColunaImgcapaEmImoveis 
 AddColunaOperacaoEmImoveis	/home/tiago/Dropbox/RProjetos/jobber/db/migrate/20110210125322_add_coluna_operacao_em_imoveis.rb	class AddColunaOperacaoEmImoveis 
